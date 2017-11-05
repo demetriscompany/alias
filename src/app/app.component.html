@@ -35,7 +35,7 @@
     *ngFor = "let word of history" 
     [word] = "word.word" 
     [guessed] = "word.guessed"
-    (edits) = "onWordResEdits($event)"
+    (played) = "onWordPlayed($event)"
   ></app-word>
   
   <div>GAME OVER</div>

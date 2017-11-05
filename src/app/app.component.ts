@@ -31,15 +31,16 @@ export class AppComponent {
   }
 
   onWordPlayed(word){
-    this.history.push(word);
-    this.word = this.getNextWord();
-  }
+    if (!this.gameOver) {
+      this.history.push(word);
+      this.word = this.getNextWord();
+    }
 
-  onWordResEdits(word){
-    this.history.forEach(element=>{
-      if (element.word == word.word) element.guessed = word.guessed;
-    });
-
+    if (this.gameOver) {
+      this.history.forEach(element=>{
+        if (element.word == word.word) element.guessed = word.guessed;
+      });
+    }
   }
 
   getNextWord(){
